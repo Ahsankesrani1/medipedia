@@ -24,6 +24,8 @@
   <link href="{{asset('./assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
   <link href="{{asset('./assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('./assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+  
+
 
   <!-- Template Main CSS File -->
   <link href="./assets/css/style.css" rel="stylesheet">
@@ -41,11 +43,12 @@
     <script src="{{asset('./assets/vendor/purecounter/purecounter.js')}}"></script>
   <script src="{{asset('./assets/vendor/aos/aos.js')}}"></script> 
   <script src="{{asset('./assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('./assets/vendor/php-email-form/validate.js')}}"></script>  
+  {{-- <script src="{{asset('./assets/vendor/php-email-form/validate.js')}}"></script>   --}}
   <script src="{{asset('./assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
 
   <!-- Template Main JS File -->
   <script src="{{asset('./assets/js/main.js')}}"></script>
+
 </body>
 
 </html>

@@ -6,7 +6,7 @@
         <ul>
           <li><a class="active" href="/">Home</a></li>
           <li><a class="active" href="/about">About</a></li>
-          <li><a href="#">Support</a></li>
+          {{-- <li><a href="#">Support</a></li> --}}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
