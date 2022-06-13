@@ -4,7 +4,7 @@
       <a href="/" class="logo me-auto"><img src="./assets/img/logo.jpeg" alt="" class="img-fluid"></a>
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="active" href="/">Home</a></li>
+          <li><a class="active" href="{{route('client.search')}}">Home</a></li>
           <li><a class="active" href="/about">About</a></li>
           <li><a href="#">Support</a></li>
         </ul>
