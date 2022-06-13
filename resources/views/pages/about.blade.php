@@ -50,7 +50,7 @@
         </section><!-- End About Section -->
 
 
-        <!-- ======= Testimonials Section ======= -->
+        <!-- ======= pharmist Section ======= -->
         <section id="testimonials" class="testimonials">
             <div class="container">
 
@@ -136,7 +136,7 @@
                 </div>
 
             </div>
-        </section><!-- End Testimonials Section -->
+        </section><!-- End pharmist Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
