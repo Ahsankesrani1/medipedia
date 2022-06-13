@@ -31,10 +31,17 @@
               success: function(response)
               {
                 $("#searchData").html('');
-                $.each(response, function(i,d) 
+                if (response.length != 0) 
                 {
-                  $("#searchData").append(`<li><a href='medicine/${d.id}'>${d.name}<img src="${d.image}" height=50 width=50></a></li>`);
-                });
+                  $.each(response, function(i,d) 
+                  {
+                    $("#searchData").append(`<li><a href='medicine/${d.id}'>${d.name}<img src="${d.image}" height=50 width=50></a></li>`);
+                  });
+                }
+                else
+                {
+                  $("#searchData").append(`<li>Sorry No Data Available</li>`);
+                }
               },
               error: function()
               {
