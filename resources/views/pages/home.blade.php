@@ -1,13 +1,16 @@
 @extends('layout.master')
 @section('content')
+
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-content-center align-items-center">
         <div class="container position-relative">
             <p class="text-white text-center">Truly know your Medicine before you take them.</p>
-            <input class="medipedia-search offset-md-4 col-md-4 offset-md-4" placeholder="medipedia search" type="search" />
+            <input class="medipedia-search offset-md-4 col-md-4 offset-md-4" placeholder="medipedia search" type="search"
+                id="search" />
+            <ul id="searchData">
+            </ul>
         </div>
     </section><!-- End Hero -->
-
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
         <div class="container">
@@ -49,7 +52,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <img src="{{ asset('./assets/img/Medicines-img/clarfin/download.jpeg') }}"
-                                            class="img-fuild"style="width:100%;" alt="">
+                                            class="img-fuild" style="width:100%;" alt="">
                                     </div>
                                     <div class="col-md-6">
                                         Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
@@ -247,3 +250,39 @@
         </div>
     </section><!-- End Technology Section -->
 @endsection
+
+
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        function search(val) {
+            $.ajax({
+                url: "{{ route('client.medicines') }}",
+                type: "GET",
+                data: {
+                    name: val,
+                },
+                success: function(response) {
+                    $("#searchData").html('');
+                    if (response.length != 0) {
+                        $.each(response, function(i, d) {
+                            $("#searchData").append(
+                                `<li><a href='medicine/${d.id}'>${d.name}<img src="${d.image}" height=50 width=50></a></li>`
+                                );
+                        });
+                    } else {
+                        $("#searchData").append(`<li>Sorry No Data Available</li>`);
+                    }
+                },
+                error: function() {
+                    alert('Something Went Wrong');
+                }
+            });
+        }
+
+        $('#search').keyup(function() {
+            search($(this).val());
+        });
+    });
+</script>
+@endpush
