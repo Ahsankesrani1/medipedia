@@ -21,7 +21,7 @@
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="/about">About</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Support</a></li>
+              {{-- <li><i class="bx bx-chevron-right"></i> <a href="#">Support</a></li> --}}
             </ul>
           </div>
         </div>

@@ -7,3 +7,4 @@ Route::get('medicines', [App\Http\Controllers\SearchController::class, 'medicine
 
 Route::view('/about' , 'pages.about');
 Route::view('/info' , 'pages.info');
+Route::view('/admin' , 'pages.admin');
