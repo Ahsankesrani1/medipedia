@@ -42,6 +42,12 @@
                 {
                   $("#searchData").append(`<li>Sorry No Data Available</li>`);
                 }
+
+                if (val.length == 0) 
+                {
+                  $("#searchData").html('');
+                }
+                
               },
               error: function()
               {
