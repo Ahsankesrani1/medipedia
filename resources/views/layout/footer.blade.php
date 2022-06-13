@@ -20,7 +20,7 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/about">About</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Support</a></li>
             </ul>
           </div>
@@ -35,7 +35,7 @@
           &copy; Copyright <strong><span>Medipedia</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-          Designed by <a href="https://bootstrapmade.com/">ANAS MOHAMMED</a>
+          Designed by <a href="/">ANAS MOHAMMED</a>
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
