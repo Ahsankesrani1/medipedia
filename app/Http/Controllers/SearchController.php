@@ -9,7 +9,8 @@ class SearchController extends Controller
 {
     public function index()
     {
-        return view('pages.home');
+        $articles = Article::all();
+        return view('pages.home', compact('articles'));
     }
 
     public function medicines()
