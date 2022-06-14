@@ -25,14 +25,18 @@
             <div class="col-lg-12 mt-2 mt-lg-0">
                 <form class="php-email-form">
                     <div class="form-group mt-3">
-                        <select  class="form-control">
-                            <option value="1" selected>--select Articale---</option>
+                        <select class="form-control" name="article" id="article">
+                            @forelse ($articles as $a)
+                                <option value="{{$a->id}}">{{$a->name}}</option>
+                            @empty
+                                
+                            @endforelse
                         </select>
                     </div>
                     <div class="form-group mt-3">
-                        <textarea class="form-control" name="Articale" rows="5" placeholder="Articale" required></textarea>
+                        <textarea class="form-control" id="description" name="description" rows="5" placeholder="Articale" required></textarea>
                     </div>
-                    <div class="text-center"><button type="submit">Update</button></div>
+                    <div class="text-center"><button type="submit" id="update">Update</button></div>
                 </form>
             </div>
         </div>
@@ -79,6 +83,36 @@
                     });
             }
             getMessages();
+
+            function updateArticle()
+            {
+                $.ajax(
+                    {
+                        url:"{{route('article.update')}}",
+                        type: "POST",
+                        data:
+                        {
+                            _token:"{{csrf_token()}}",
+                            id:$("#article").val(),
+                            description:$("#description").val(),
+                        },
+                        success: function(response)
+                        {
+                            alert(response);
+                            location.reload();
+                        },
+                        error: function()
+                        {
+                            alert('Something Went Wrong');
+                        }
+                    });
+            }
+
+            $('#update').on('click', function(e)
+            {
+                e.preventDefault();
+                updateArticle();
+            });
         });
     </script>
 @endpush
