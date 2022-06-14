@@ -19,6 +19,12 @@ class AdminController extends Controller
         return response()->json($messages, 200);
     }
 
+    public function articleDetail()
+    {
+        $artilce = Article::find(request()->id)->description;
+        return response()->json($artilce, 200);
+    }
+
     public function updateArticle()
     {
         $artilce = Article::find(request()->id);

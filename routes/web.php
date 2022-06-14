@@ -17,4 +17,5 @@ Route::get('fetch/messages', [App\Http\Controllers\AdminController::class, 'mess
 
 // ARTICLE
 Route::get('articles/api', [App\Http\Controllers\SearchController::class, 'articles'])->name('articles');
+Route::get('article/show', [App\Http\Controllers\AdminController::class, 'articleDetail'])->name('article.show');
 Route::post('articles/update/api', [App\Http\Controllers\AdminController::class, 'updateArticle'])->name('article.update');

@@ -84,6 +84,33 @@
             }
             getMessages();
 
+            function articleShow()
+            {
+                $.ajax(
+                    {
+                        url:"{{route('article.show')}}",
+                        type: "GET",
+                        data:
+                        {
+                            id:$("#article").val(),
+                        },
+                        success: function(response)
+                        {
+                            $("#description").text(response)
+                        },
+                        error: function()
+                        {
+                            alert('Something Went Wrong');
+                        }
+                    });
+            }
+            articleShow();   
+
+            $("#article").on('change', function()
+            {
+                articleShow();   
+            });
+
             function updateArticle()
             {
                 $.ajax(
