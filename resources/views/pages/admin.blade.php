@@ -8,33 +8,7 @@
                 <div class="card-header">
                     <h3>Contact Form</h3>
                 </div>
-                <div class="card-body row">
-                    <div class="col-md-3">
-                     <p>Name : <span>ahsan</span></p>
-                    </div>
-                    <div class="col-md-3">
-                     <p>Email : <span>ahsan@gmail.com</span></p>
-                    </div>
-                    <div class="col-md-3">
-                     <p>subject : <span>php</span></p>
-                    </div>
-                    <div class="col-md-3">
-                     <p>message : <span>hello</span></p>
-                    </div>
-                </div>
-                <div class="card-body row">
-                    <div class="col-md-3">
-                     <p>Name : <span>ahsan</span></p>
-                    </div>
-                    <div class="col-md-3">
-                     <p>Email : <span>ahsan@gmail.com</span></p>
-                    </div>
-                    <div class="col-md-3">
-                     <p>subject : <span>php</span></p>
-                    </div>
-                    <div class="col-md-3">
-                     <p>message : <span>hello</span></p>
-                    </div>
+                <div class="card-body row" id="messages">
                 </div>
             </div>
         </div>
@@ -67,3 +41,44 @@
 {{-- artical section --}}
 
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function()
+        {
+            function getMessages()
+            {
+                $.ajax(
+                    {
+                        url:"{{route('admin.messages')}}",
+                        type: "GET",
+                        success: function(response)
+                        {
+                            $.each(response, function(i,d) 
+                            {
+                                $("#messages").append(
+                                    `<div class="col-md-3">
+                                    <p>Name : <span>${d.name}</span></p>
+                                    </div>
+                                    <div class="col-md-3">
+                                    <p>Email : <span>${d.email}</span></p>
+                                    </div>
+                                    <div class="col-md-3">
+                                    <p>subject : <span>${d.subject}</span></p>
+                                    </div>
+                                    <div class="col-md-3">
+                                    <p>message : <span>${d.message}</span></p>
+                                    </div>`
+                                );   
+                            })
+                        },
+                        error: function()
+                        {
+                            alert('Something Went Wrong');
+                        }
+                    });
+            }
+            getMessages();
+        });
+    </script>
+@endpush

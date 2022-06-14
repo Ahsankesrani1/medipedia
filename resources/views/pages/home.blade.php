@@ -273,7 +273,7 @@
                 {
                   $.each(response, function(i,d) 
                   {
-                    $("#searchData").append(`<li><a href='medicine/${d.id}'>${d.name}<img src="${d.image}" height=50 width=50></a></li>`);
+                    $("#searchData").append(`<li><a href='{{route('client.medicine')}}?id=${d.id}'>${d.name}<img src="${d.image}" height=50 width=50></a></li>`);
                   });
                 }
                 else

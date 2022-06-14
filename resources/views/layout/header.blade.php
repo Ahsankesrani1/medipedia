@@ -5,7 +5,7 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="active" href="{{route('client.search')}}">Home</a></li>
-          <li><a class="active" href="/about">About</a></li>
+          <li><a class="active" href="{{route('client.about')}}">About</a></li>
           {{-- <li><a href="#">Support</a></li> --}}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

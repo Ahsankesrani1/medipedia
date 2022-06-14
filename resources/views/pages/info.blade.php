@@ -4,51 +4,15 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="{{ asset('./assets/img/Medicines-img/paracetemol/istockphoto-1022216070-612x612.jpeg') }}"
-                        class="img-fuild" alt="">
+                    <img class="img-fuild" id="medicineImg" alt="Medicine Image" height="500" width="500">
                 </div>
                 <div class="col-md-6 d-flex align-items-stretch">
                     <div class="card">
-                        <div class="card-img">
+                        {{-- <div class="card-img">
                             <img src="assets/img/events-1.jpg" alt="...">
-                        </div>
+                        </div> --}}
                         <div class="card-body">
-
-                            <p class="card-text">1. About paracetamol for adults
-
-                                Paracetamol is a common painkiller
-                                used to treat aches and pain. It can
-                                also be used to reduce a high
-                                temperature.
-                                <br />
-                                It's available combined with other
-                                painkillers and anti-sickness
-                                medicines. It's also an ingredient in a
-                                wide range of cold and flu remedies.
-                            </p>
                             <p class="card-text">
-                                2. Key fact|
-                                x Paracetamol takes up to an hour to work
-                                x The usual dose of paracetamol is one or two 500mg tablets at
-                                a time
-                                x Do not take paracetamol with other medicines containing
-                                paracetamol
-                                x Paracetamol is safe to take in pregnancy and while
-                                breastfeeding, at recommended doses
-                                x yrand names include Disprol, Hedex, Medinol and Panadol.
-                                <br />
-                                <br />
-                                03 Precautiona
-
-                                In the following situations, it is not advised. 
-                                
-                                x You're expecting a child or are nursing a baby. This is because
-                                you should only take the prescription if your doctor
-                                recommends it when you are pregnant or breastfeeding. 
-                                x You have major issues with the way your liver functions, or you
-                                regularly consume large amounts of alcohol. 
-                                x Your doctor has recommended medication for you. 
-                                x A drug has caused you to experience an allergic response.
                             </p>
                         </div>
                     </div>
@@ -146,3 +110,36 @@
         </div>
     </section><!-- End pharmist Section -->
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function()
+        {
+            function getData()
+            {
+                $.ajax(
+                    {
+                        url:"{{route('client.medicine.show')}}",
+                        type: "GET",
+                        data:
+                        {
+                            id:"{{request()->id}}",
+                        },
+                        success: function(response)
+                        {
+                            $('.card-text').text(response.description);
+                            $("#medicineImg").attr("src","{{request()->root()}}/"+response.image);
+                        },
+                        error: function()
+                        {
+                            alert('Id Does Not Exists');
+                            history.go(-1);
+                        }
+                    });
+            }
+            getData();
+        });
+    </script>
+@endpush
+
+
