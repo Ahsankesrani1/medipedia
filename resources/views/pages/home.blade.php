@@ -20,136 +20,7 @@
             </div>
 
             <div class="testimonials-slider swiper">
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Aspirin</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="{{ asset('./assets/img/Medicines-img/aspirin/1.jpeg') }}"
-                                            class="img-fuild" style="width:100%;" alt="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                        rhoncus.
-                                        Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at
-                                        semper.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>clarfin</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="{{ asset('./assets/img/Medicines-img/clarfin/download.jpeg') }}"
-                                            class="img-fuild" style="width:100%;" alt="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                        rhoncus.
-                                        Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at
-                                        semper.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Dexamethasone</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="{{ asset('./assets/img/Medicines-img/dexamethasone/8bee9396-0cbc-422e-ba06-77acf37128e7.jpeg') }}"
-                                            class="img-fuild" style="width:100%;" alt="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                        rhoncus.
-                                        Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at
-                                        semper.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Paracetemol</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="{{ asset('./assets/img/Medicines-img/paracetemol/istockphoto-1022216070-612x612.jpeg') }}"
-                                            class="img-fuild" style="width:100%;" alt="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                        rhoncus.
-                                        Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at
-                                        semper.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Remdisiver</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="{{ asset('./assets/img/Medicines-img/remdisiver/image.webp') }}"
-                                            class="img-fuild" style="width:100%;" alt="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                        rhoncus.
-                                        Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at
-                                        semper.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Semathicone</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="{{ asset('./assets/img/Medicines-img/semathicone/download.jpeg') }}"
-                                            class="img-fuild" style="width:100%;" alt="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                        rhoncus.
-                                        Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at
-                                        semper.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
+                <div class="swiper-wrapper" id="articlesSlider">
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
@@ -298,6 +169,50 @@
         {
           search($(this).val());
         });
+
+        // ARTICLES
+
+        function articles()
+        {
+          $.ajax(
+            {
+              url:"{{route('articles')}}",
+              type: "GET",
+              success: function(response)
+              {
+                $.each(response, function(i,d) 
+                {
+                    $("#articlesSlider").append(
+                        `<div class="swiper-slide">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>${d.name}</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="{{ request()->root() }}/${d.image}"
+                                            class="img-fuild" style="width:100%;" alt="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        ${d.description}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+                    );   
+                });
+                
+              },
+              error: function()
+              {
+                alert('Something Went Wrong');
+              }
+            });
+        }
+        articles();
+
       });
     </script>
 @endpush

@@ -11,6 +11,9 @@ Route::get('medicine/show/api', [App\Http\Controllers\MedicineController::class,
 Route::get('about', [App\Http\Controllers\AboutController::class, 'index'])->name('client.about');
 Route::post('about/store', [App\Http\Controllers\AboutController::class, 'store'])->name('client.about.store');
 
-// Admin
+// ADMIN
 Route::get('admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
 Route::get('fetch/messages', [App\Http\Controllers\AdminController::class, 'messages'])->name('admin.messages');
+
+// ARTICLE
+Route::get('articles/api', [App\Http\Controllers\SearchController::class, 'articles'])->name('articles');

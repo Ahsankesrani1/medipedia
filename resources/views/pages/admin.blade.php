@@ -70,7 +70,7 @@
                                     <p>message : <span>${d.message}</span></p>
                                     </div>`
                                 );   
-                            })
+                            });
                         },
                         error: function()
                         {
